@@ -1,0 +1,41 @@
+# Configuration of the application
+
+spring.jmx:
+   enabled: false
+
+spring.datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test;MODE=MySQL
+
+server:
+  port: 8090
+
+#security:
+#  basic:
+#    enabled: false
+
+project:
+  name: test-task-attempt1
+  version: 1.0
+  description: crypto currency recommendation service test task
+info:
+  build:
+    artifact: ${project.artifactId}
+    name: ${project.name}
+    description: ${project.description}
+    version: ${project.version}
+
+---
+spring:
+  profiles: test
+  h2:
+    console:
+      enabled: true
+
+spring.jpa:
+    hibernate.ddl-auto: create-drop
+
+logging:
+  file: boot_example.log
+  org.hibernate: INFO
+
